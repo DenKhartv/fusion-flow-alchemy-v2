@@ -2,95 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 240 7% 6%;
+    --foreground: 40 6% 95%;
+    --card: 240 5% 10%;
+    --card-foreground: 40 6% 95%;
+    --popover: 240 5% 10%;
+    --popover-foreground: 40 6% 95%;
+    --primary: 24 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 3% 16%;
+    --secondary-foreground: 40 6% 95%;
+    --muted: 240 3% 20%;
+    --muted-foreground: 240 3% 55%;
+    --accent: 24 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 3% 18%;
+    --input: 240 3% 18%;
+    --ring: 24 100% 50%;
+    --radius: 0.75rem;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Custom tokens */
+    --surface-glass: 240 5% 12%;
+    --surface-matte: 240 5% 8%;
+    --text-dim: 240 3% 45%;
+    --glow-orange: 24 100% 50%;
+    --gradient-dark: linear-gradient(180deg, hsl(240 7% 6%) 0%, hsl(240 5% 4%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(240 5% 12%) 0%, hsl(240 5% 8%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(24 100% 50%) 0%, hsl(30 100% 60%) 100%);
+    --shadow-glow: 0 0 60px -12px hsl(24 100% 50% / 0.15);
+    --shadow-card: 0 8px 32px -8px hsl(0 0% 0% / 0.4);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --font-display: 'Oswald', sans-serif;
+    --font-body: 'Manrope', sans-serif;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-background: 240 5% 8%;
+    --sidebar-foreground: 40 6% 95%;
+    --sidebar-primary: 24 100% 50%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 240 3% 16%;
+    --sidebar-accent-foreground: 40 6% 95%;
+    --sidebar-border: 240 3% 18%;
+    --sidebar-ring: 24 100% 50%;
   }
 }
 
@@ -101,5 +57,134 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer components {
+  .section-dark {
+    @apply bg-background;
+  }
+
+  .section-light {
+    background: hsl(var(--surface-matte));
+  }
+
+  .glass-card {
+    background: linear-gradient(135deg, hsl(var(--surface-glass) / 0.6) 0%, hsl(var(--surface-matte) / 0.4) 100%);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.5);
+    @apply rounded-xl;
+  }
+
+  .matte-card {
+    background: hsl(var(--surface-matte));
+    border: 1px solid hsl(var(--border) / 0.3);
+    @apply rounded-xl;
+  }
+
+  .accent-card {
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.1) 0%, hsl(var(--primary) / 0.05) 100%);
+    border: 1px solid hsl(var(--primary) / 0.2);
+    @apply rounded-xl;
+  }
+
+  .image-placeholder {
+    background: linear-gradient(135deg, hsl(var(--surface-glass)) 0%, hsl(var(--surface-matte)) 100%);
+    border: 1px solid hsl(var(--border) / 0.4);
+    @apply rounded-xl overflow-hidden relative;
+  }
+
+  .image-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 30% 40%, hsl(var(--primary) / 0.06) 0%, transparent 60%),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  .heading-xl {
+    font-family: var(--font-display);
+    @apply text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.9] tracking-tight;
+  }
+
+  .heading-lg {
+    font-family: var(--font-display);
+    @apply text-3xl md:text-5xl lg:text-6xl font-bold leading-[0.95] tracking-tight;
+  }
+
+  .heading-md {
+    font-family: var(--font-display);
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight;
+  }
+
+  .text-body {
+    font-family: var(--font-body);
+    @apply text-base md:text-lg leading-relaxed;
+  }
+
+  .text-caption {
+    font-family: var(--font-body);
+    @apply text-xs md:text-sm tracking-wide uppercase;
+    color: hsl(var(--text-dim));
+  }
+
+  .badge-pill {
+    @apply inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium;
+    background: hsl(var(--secondary));
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .badge-accent {
+    @apply inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium;
+    background: hsl(var(--primary) / 0.15);
+    color: hsl(var(--primary));
+    border: 1px solid hsl(var(--primary) / 0.3);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 rounded-xl text-base font-semibold transition-all duration-300;
+    background: var(--gradient-accent);
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-glow);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 80px -8px hsl(var(--primary) / 0.3);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-4 rounded-xl text-base font-semibold transition-all duration-300;
+    background: transparent;
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--border));
+  }
+
+  .btn-outline:hover {
+    border-color: hsl(var(--primary));
+    color: hsl(var(--primary));
+  }
+
+  .number-big {
+    font-family: var(--font-display);
+    @apply text-6xl md:text-8xl font-bold;
+    color: hsl(var(--primary));
+    line-height: 1;
+  }
+
+  .divider {
+    @apply w-full h-px;
+    background: linear-gradient(90deg, transparent, hsl(var(--border)), transparent);
   }
 }
