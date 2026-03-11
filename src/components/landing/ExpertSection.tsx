@@ -5,7 +5,7 @@ const facts = [
   { num: "2+", label: "года в монтаже и работе с видео" },
   { num: "2", label: "года в DaVinci Resolve" },
   { num: "1.5", label: "года работы с Fusion" },
-  { num: "450K", label: "₽ — самый дорогой проект" },
+  { num: "650K", label: "₽ — самый дорогой проект" },
   { num: "150–200K", label: "₽/мес на монтаже и видео" },
 ];
 
@@ -45,8 +45,14 @@ const ExpertSection = () => (
 
       <div className="grid lg:grid-cols-3 gap-8 mb-12">
         <div className="lg:col-span-1 space-y-4">
-          <ImagePlaceholder caption="Портрет эксперта" aspectRatio="aspect-[3/4]" className="w-full" />
-          <ImagePlaceholder caption="Антон в работе" aspectRatio="aspect-video" className="w-full" />
+          <div className="image-placeholder aspect-[3/4] w-full overflow-hidden">
+            <img
+              src="/images/anton-expert.png"
+              alt="Антон Киселёв"
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
         </div>
         <div className="lg:col-span-2 space-y-6">
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -106,7 +112,14 @@ const ExpertSection = () => (
           </FadeUp>
         </div>
         <FadeUp delay={2} className="lg:col-span-2">
-          <ImagePlaceholder caption="Документальный кадр" aspectRatio="aspect-[3/4]" className="w-full" />
+          <div className="image-placeholder aspect-[3/4] w-full overflow-hidden">
+            <img
+              src="/images/anton-doc.png"
+              alt="Антон Киселёв за работой"
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
         </FadeUp>
       </div>
     </Section>

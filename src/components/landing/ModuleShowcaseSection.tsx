@@ -33,12 +33,6 @@ const modules: Module[] = [
     refs: ["Пыль / атмосфера", "Снег / дождь", "Распад / разлёт / частицы"],
     caption: "Референс эффектов частиц",
   },
-  {
-    title: "Макросы и пресеты",
-    desc: "Проекты делаются быстрее, а выглядят дороже",
-    refs: ["Шаблон текстовой анимации", "Reusable motion preset", "Готовая боевая заготовка"],
-    caption: "Референс пресета / шаблона",
-  },
 ];
 
 const ModuleShowcaseSection = () => (
@@ -61,14 +55,143 @@ const ModuleShowcaseSection = () => (
               <h3 className="heading-md">{m.title}</h3>
             </div>
             <p className="text-body text-muted-foreground mb-6 max-w-xl ml-14">{m.desc}</p>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ml-14">
-              {m.refs.map((ref, ri) => (
-                <div key={ri} className="space-y-2">
-                  <ImagePlaceholder caption={m.caption} aspectRatio="aspect-video" className="w-full" />
-                  <p className="text-xs text-dim font-body">{ref}</p>
+
+            {m.title === "Трекинг" ? (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 ml-0 md:ml-14">
+                <div className="space-y-2">
+                  <div className="image-placeholder aspect-video w-full overflow-hidden">
+                    <video
+                      src="/videos/tracking-standard.mp4"
+                      className="h-full w-full object-cover"
+                      controls
+                      muted
+                      loop
+                      playsInline
+                    />
+                  </div>
+                  <p className="text-xs text-dim font-body ml-1">Трекинг объекта (Tracker)</p>
                 </div>
-              ))}
-            </div>
+                <div className="space-y-2">
+                  <div className="image-placeholder aspect-video w-full overflow-hidden">
+                    <video
+                      src="/videos/tracking-planar.mp4"
+                      className="h-full w-full object-cover"
+                      controls
+                      muted
+                      loop
+                      playsInline
+                    />
+                  </div>
+                  <p className="text-xs text-dim font-body ml-1">Планарный трекинг (Planar Tracker)</p>
+                </div>
+                <div className="space-y-2">
+                  <div className="image-placeholder aspect-video w-full overflow-hidden">
+                    <video
+                      src="/videos/tracking-surface.mp4"
+                      className="h-full w-full object-cover"
+                      controls
+                      muted
+                      loop
+                      playsInline
+                    />
+                  </div>
+                  <p className="text-xs text-dim font-body ml-1">Трекинг поверхности (Surface Tracker)</p>
+                </div>
+              </div>
+            ) : m.title === "2D Анимация" ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ml-0 md:ml-14">
+                <div className="space-y-2">
+                  <div className="image-placeholder aspect-video w-full overflow-hidden">
+                    <video
+                      src="/videos/2d-anim-1.mp4"
+                      className="h-full w-full object-cover"
+                      controls
+                      muted
+                      loop
+                      playsInline
+                    />
+                  </div>
+                  <p className="text-xs text-dim font-body ml-1">Анимация текста и элементов интерфейса</p>
+                </div>
+                <div className="space-y-2">
+                  <div className="image-placeholder aspect-video w-full overflow-hidden">
+                    <video
+                      src="/videos/2d-anim-2.mp4"
+                      className="h-full w-full object-cover"
+                      controls
+                      muted
+                      loop
+                      playsInline
+                    />
+                  </div>
+                  <p className="text-xs text-dim font-body ml-1">Монтаж с 2D‑графикой и motion‑приёмами</p>
+                </div>
+                <div className="space-y-2">
+                  <div className="image-placeholder aspect-video w-full overflow-hidden">
+                    <video
+                      src="/videos/2d-anim-3.mp4"
+                      className="h-full w-full object-cover"
+                      controls
+                      muted
+                      loop
+                      playsInline
+                    />
+                  </div>
+                  <p className="text-xs text-dim font-body ml-1">Рекламный ролик с кликабельным Taplink</p>
+                </div>
+                <div className="space-y-2">
+                  <div className="image-placeholder aspect-video w-full overflow-hidden">
+                    <video
+                      src="/videos/2d-anim-4.mp4"
+                      className="h-full w-full object-cover"
+                      controls
+                      muted
+                      loop
+                      playsInline
+                    />
+                  </div>
+                  <p className="text-xs text-dim font-body ml-1">Анимация для B‑roll и динамики кадра</p>
+                </div>
+              </div>
+            ) : m.title === "3D Анимация" ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ml-0 md:ml-14">
+                <div className="space-y-2">
+                  <div className="image-placeholder aspect-video w-full overflow-hidden">
+                    <video
+                      src="/videos/3d-anim-1.mp4"
+                      className="h-full w-full object-cover"
+                      controls
+                      muted
+                      loop
+                      playsInline
+                    />
+                  </div>
+                  <p className="text-xs text-dim font-body ml-1">3D‑анимация с интеграцией в сцену</p>
+                </div>
+                <div className="space-y-2">
+                  <div className="image-placeholder aspect-video w-full overflow-hidden">
+                    <video
+                      src="/videos/3d-anim-2.mp4"
+                      className="h-full w-full object-cover"
+                      controls
+                      muted
+                      loop
+                      playsInline
+                    />
+                  </div>
+                  <p className="text-xs text-dim font-body ml-1">Презентационный ролик с 3D‑плашками</p>
+                </div>
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ml-14">
+                {m.refs.map((ref, ri) => (
+                  <div key={ri} className="space-y-2">
+                    <ImagePlaceholder caption={m.caption} aspectRatio="aspect-video" className="w-full" />
+                    <p className="text-xs text-dim font-body">{ref}</p>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </FadeUp>
       ))}

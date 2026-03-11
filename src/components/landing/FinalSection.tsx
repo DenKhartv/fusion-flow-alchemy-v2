@@ -70,7 +70,14 @@ const FinalSection = () => (
           </FadeUp>
         </div>
         <FadeUp delay={2} className="lg:col-span-1">
-          <ImagePlaceholder caption="Портрет Антона Киселёва" aspectRatio="aspect-[3/4]" className="w-full max-w-xs mx-auto" />
+          <div className="image-placeholder aspect-[3/4] w-full max-w-xs mx-auto overflow-hidden">
+            <img
+              src="/images/anton-final.png"
+              alt="Антон Киселёв"
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
         </FadeUp>
       </div>
     </Section>

@@ -5,6 +5,7 @@ import ResultsSection from "@/components/landing/ResultsSection";
 import ModuleShowcaseSection from "@/components/landing/ModuleShowcaseSection";
 import ExpertSection from "@/components/landing/ExpertSection";
 import CasesSection from "@/components/landing/CasesSection";
+import TestimonialsFusionSection from "@/components/landing/TestimonialsFusionSection";
 import ProgramSection from "@/components/landing/ProgramSection";
 import BonusesSection from "@/components/landing/BonusesSection";
 import PricingSection from "@/components/landing/PricingSection";
@@ -27,6 +28,8 @@ const Index = () => (
     <ExpertSection />
     <SectionDivider />
     <CasesSection />
+    <SectionDivider />
+    <TestimonialsFusionSection />
     <SectionDivider />
     <ProgramSection />
     <SectionDivider />

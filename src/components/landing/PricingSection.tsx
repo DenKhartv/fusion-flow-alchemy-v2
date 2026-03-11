@@ -40,7 +40,6 @@ const PricingSection = () => (
                 </li>
               ))}
             </ul>
-            <div className="badge-pill text-xs self-start mb-4">Мест: до 30, закрывается по спросу</div>
             <a href="#apply" className="btn-outline text-center">Выбрать тариф</a>
           </div>
         </FadeUp>
