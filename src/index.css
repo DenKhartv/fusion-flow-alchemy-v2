@@ -114,17 +114,17 @@
 
   .heading-xl {
     font-family: var(--font-display);
-    @apply text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.9] tracking-tight;
+    @apply text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.02] tracking-tight;
   }
 
   .heading-lg {
     font-family: var(--font-display);
-    @apply text-3xl md:text-5xl lg:text-6xl font-bold leading-[0.95] tracking-tight;
+    @apply text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight;
   }
 
   .heading-md {
     font-family: var(--font-display);
-    @apply text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight;
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold leading-[1.08];
   }
 
   .text-body {

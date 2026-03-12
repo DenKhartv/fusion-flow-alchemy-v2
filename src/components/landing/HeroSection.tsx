@@ -75,7 +75,7 @@ const HeroSection = () => (
         <FadeUp delay={1}>
           <div className="space-y-1">
             <p className="text-sm font-medium text-muted-foreground font-body">Антон Киселёв</p>
-            <p className="text-xs text-dim font-body">монтажёр / notion-специалист / автор программы</p>
+            <p className="text-xs text-dim font-body">монтажёр / Fusion-специалист / автор программы</p>
           </div>
         </FadeUp>
 

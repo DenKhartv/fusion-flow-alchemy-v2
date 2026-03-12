@@ -23,7 +23,10 @@ const PricingSection = () => (
     {/* Pricing — section 15 */}
     <Section id="pricing">
       <FadeUp>
-        <h2 className="heading-lg mb-16 text-center">Что<br /><span className="text-primary">по чём</span></h2>
+        <h2 className="heading-lg mb-16 text-center leading-[1.15]">
+          Что<br />
+          <span className="text-primary">по чём</span>
+        </h2>
       </FadeUp>
 
       <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">

@@ -158,7 +158,7 @@ const ModuleShowcaseSection = () => (
                 <div className="space-y-2">
                   <div className="image-placeholder aspect-video w-full overflow-hidden">
                     <video
-                      src="/videos/3d-anim-1.mp4"
+                      src="/videos/viral-reels.mp4"
                       className="h-full w-full object-cover"
                       controls
                       muted
@@ -180,6 +180,35 @@ const ModuleShowcaseSection = () => (
                     />
                   </div>
                   <p className="text-xs text-dim font-body ml-1">Презентационный ролик с 3D‑плашками</p>
+                </div>
+              </div>
+            ) : m.title === "Частицы" ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ml-0 md:ml-14">
+                <div className="space-y-2">
+                  <div className="image-placeholder aspect-video w-full overflow-hidden">
+                    <video
+                      src="/videos/particles-dissolve.mp4"
+                      className="h-full w-full object-cover"
+                      controls
+                      muted
+                      loop
+                      playsInline
+                    />
+                  </div>
+                  <p className="text-xs text-dim font-body ml-1">Рассыпание (Dissolve)</p>
+                </div>
+                <div className="space-y-2">
+                  <div className="image-placeholder aspect-video w-full overflow-hidden">
+                    <video
+                      src="/videos/particles-spray.mp4"
+                      className="h-full w-full object-cover"
+                      controls
+                      muted
+                      loop
+                      playsInline
+                    />
+                  </div>
+                  <p className="text-xs text-dim font-body ml-1">Распыление (Spray)</p>
                 </div>
               </div>
             ) : (

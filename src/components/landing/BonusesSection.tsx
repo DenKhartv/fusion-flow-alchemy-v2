@@ -14,7 +14,7 @@ const bonuses = [
   "Разбор твоего реального затыка на созвоне",
   "Поддержка после окончания курса",
   "Вебинар по медийке в Instagram",
-  "Юридический блок через юриста",
+  "Юридический блок от юриста",
   "ИИ-ассистент «ИИ-Антон»",
 ];
 
@@ -65,7 +65,10 @@ const BonusesSection = () => (
     {/* Section 14 — Not for */}
     <Section className="section-light">
       <FadeUp>
-        <h2 className="heading-lg mb-10">Кому программа<br /><span className="text-primary">не подойдёт</span></h2>
+        <h2 className="heading-lg mb-10 leading-[1.15]">
+          Кому программа<br />
+          <span className="text-primary">не подойдёт</span>
+        </h2>
       </FadeUp>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {notFor.map((item, i) => (
