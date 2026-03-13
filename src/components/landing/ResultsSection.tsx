@@ -24,8 +24,15 @@ const ResultsSection = () => (
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
       {results.map((r, i) => (
         <FadeUp key={i} delay={i}>
-          <div className={`glass-card p-8 h-full ${i === 0 ? 'lg:col-span-1' : ''}`}>
-            <h3 className="heading-md text-xl mb-3">{r.title}</h3>
+          <div className="glass-card p-6 md:p-8 h-full flex flex-col gap-3">
+            <div className="flex items-start gap-3">
+              <div className="mt-1 w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shadow-[0_0_20px_rgba(255,106,0,0.25)]">
+                <span className="font-display text-xs text-primary">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <h3 className="heading-md text-lg md:text-xl">{r.title}</h3>
+            </div>
             <p className="text-body text-muted-foreground">{r.text}</p>
           </div>
         </FadeUp>

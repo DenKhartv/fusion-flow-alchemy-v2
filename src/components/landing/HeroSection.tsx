@@ -94,12 +94,6 @@ const HeroSection = () => (
         </FadeUp>
 
         <FadeUp delay={4}>
-          <p className="text-sm text-dim font-body max-w-2xl">
-            Перестанешь гуглить туториалы, соберёшь портфолио из реальных работ, доведёшь свои проекты до результата и начнёшь брать задачи, от которых раньше отказывался
-          </p>
-        </FadeUp>
-
-        <FadeUp delay={5}>
           <div className="flex flex-wrap gap-2">
             {badges.map((b) => (
               <span key={b} className="badge-pill text-xs">{b}</span>
@@ -107,7 +101,7 @@ const HeroSection = () => (
           </div>
         </FadeUp>
 
-        <FadeUp delay={6}>
+        <FadeUp delay={5}>
           <div className="flex flex-wrap gap-4 pt-2">
             <a href="#program" className="btn-primary">Посмотреть программу</a>
             <a href="#pricing" className="btn-outline">Выбрать тариф</a>
