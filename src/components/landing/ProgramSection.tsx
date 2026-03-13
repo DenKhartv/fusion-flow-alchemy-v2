@@ -41,7 +41,16 @@ const steps = [
     step: "Шаг 03",
     title: "2D Анимация",
     result: "Видео перестаёт быть просто монтажом — появляется motion и ощущение дорогой работы",
-    topics: ["Работа с текстом", "Градиентная графика и фоны", "UI/UX элементы в Fusion", "Формы и шейпы", "Ключи и кривые", "Текстуры", "Шаблоны для переиспользования"],
+    topics: [
+      "Работа с текстом",
+      "Градиентная графика и фоны",
+      "UI/UX элементы в Fusion",
+      "Формы и шейпы",
+      "Ключи и кривые",
+      "Текстуры",
+      "Базовые частицы в 2D-сценах",
+      "Шаблоны для переиспользования",
+    ],
   },
   {
     step: "Шаг 04",
@@ -125,7 +134,7 @@ const ProgramSection = () => (
                   </div>
                   <p className="text-sm text-primary font-medium mb-4 font-body">Результат: {s.result}</p>
                   <div className="flex flex-wrap gap-2">
-                    {s.topics.map((t, ti) => (
+                    {s.topics.slice(0, 4).map((t, ti) => (
                       <span key={ti} className="badge-pill text-xs">{t}</span>
                     ))}
                   </div>

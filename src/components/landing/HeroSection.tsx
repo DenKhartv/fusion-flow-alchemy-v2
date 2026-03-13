@@ -103,9 +103,14 @@ const HeroSection = () => (
 
         <FadeUp delay={5}>
           <div className="flex flex-wrap gap-4 pt-2">
-            <a href="#program" className="btn-primary">Посмотреть программу</a>
-            <a href="#pricing" className="btn-outline">Выбрать тариф</a>
+            <a href="#pre-register" className="btn-primary">Заполнить анкету предзаписи</a>
+            <a href="#pre-register" className="btn-outline">Я хочу в первый поток</a>
           </div>
+        </FadeUp>
+        <FadeUp delay={6}>
+          <p className="text-sm text-muted-foreground font-body pt-1">
+            Сейчас мы собираем заявки в первый поток программы.
+          </p>
         </FadeUp>
       </div>
     </div>

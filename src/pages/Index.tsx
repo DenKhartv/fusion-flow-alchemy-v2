@@ -8,10 +8,11 @@ import CasesSection from "@/components/landing/CasesSection";
 import TestimonialsFusionSection from "@/components/landing/TestimonialsFusionSection";
 import ProgramSection from "@/components/landing/ProgramSection";
 import BonusesSection from "@/components/landing/BonusesSection";
-import PricingSection from "@/components/landing/PricingSection";
 import FAQSection from "@/components/landing/FAQSection";
 import FinalSection from "@/components/landing/FinalSection";
 import { SectionDivider } from "@/components/landing/SectionWrapper";
+import MidPageWaitlistCTA from "@/components/landing/MidPageWaitlistCTA";
+import ProofWaitlistCTA from "@/components/landing/ProofWaitlistCTA";
 
 const Index = () => (
   <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -22,6 +23,7 @@ const Index = () => (
     <PainPointsSection />
     <SectionDivider />
     <ResultsSection />
+    <MidPageWaitlistCTA />
     <SectionDivider />
     <ModuleShowcaseSection />
     <SectionDivider />
@@ -30,12 +32,11 @@ const Index = () => (
     <CasesSection />
     <SectionDivider />
     <TestimonialsFusionSection />
+    <ProofWaitlistCTA />
     <SectionDivider />
     <ProgramSection />
     <SectionDivider />
     <BonusesSection />
-    <SectionDivider />
-    <PricingSection />
     <SectionDivider />
     <FAQSection />
     <SectionDivider />
