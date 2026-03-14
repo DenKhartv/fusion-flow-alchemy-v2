@@ -1,19 +1,19 @@
 import { Section, FadeUp } from "./SectionWrapper";
 
 const resultItems = [
-  "Начнёшь делать видео, которые не стыдно показывать клиенту",
-  "Поднимешь чек в 2–3 раза",
-  "Перестанешь бояться сложных проектов",
-  "Соберёшь продающее портфолио",
-  "Каждый следующий проект будет быстрее предыдущего",
+  "Видео, которые не стыдно показывать клиенту",
+  "Чек растёт за счёт визуала и задач",
+  "Сложные проекты перестают пугать",
+  "Портфолио работает как витрина для клиентов",
+  "Каждый следующий проект собирается быстрее предыдущего",
 ];
 
 const bonuses = [
-  "Реальный оплачиваемый заказ от Антона с поддержкой в реализации",
-  "Пак боевых заготовок",
+  "Реальный оплачиваемый заказ с поддержкой в реализации",
+  "Пак боевых заготовок и макросов",
   "Разбор твоего реального затыка на созвоне",
-  "Поддержка после окончания курса",
-  "Вебинар по медийке в Instagram",
+  "Поддержка после окончания программы",
+  "Вебинар по медийке и работе с контентом",
   "Юридический блок от юриста",
   "ИИ-ассистент «ИИ-Антон»",
 ];
@@ -31,14 +31,14 @@ const BonusesSection = () => (
     {/* Section 13 */}
     <Section>
       <FadeUp>
-        <h2 className="heading-lg mb-12">Помощь<br /><span className="text-primary">в реализации</span></h2>
+        <h2 className="heading-lg mb-14">Помощь<br /><span className="text-primary">в реализации</span></h2>
       </FadeUp>
 
-      <div className="grid md:grid-cols-2 gap-8 mb-12">
+      <div className="grid md:grid-cols-2 gap-8 mb-10">
         <FadeUp delay={1}>
-          <div className="accent-card p-8">
-            <h3 className="text-caption text-primary mb-6">Результат</h3>
-            <ul className="space-y-3">
+          <div className="accent-card p-8 md:p-10">
+            <h3 className="text-caption text-primary mb-8">Результат</h3>
+            <ul className="space-y-4">
               {resultItems.map((r, i) => (
                 <li key={i} className="flex items-start gap-3 text-body">
                   <span className="text-primary shrink-0">✓</span>{r}
@@ -48,9 +48,9 @@ const BonusesSection = () => (
           </div>
         </FadeUp>
         <FadeUp delay={2}>
-          <div className="glass-card p-8">
-            <h3 className="text-caption mb-6">Бонусы</h3>
-            <ul className="space-y-3">
+          <div className="glass-card p-8 md:p-10">
+            <h3 className="text-caption mb-8">Бонусы</h3>
+            <ul className="space-y-4">
               {bonuses.map((b, i) => (
                 <li key={i} className="flex items-start gap-3 text-body text-muted-foreground">
                   <span className="text-primary shrink-0">+</span>{b}
@@ -70,10 +70,10 @@ const BonusesSection = () => (
           <span className="text-primary">не подойдёт</span>
         </h2>
       </FadeUp>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {notFor.map((item, i) => (
           <FadeUp key={i} delay={i}>
-            <div className="matte-card p-6 h-full">
+            <div className="matte-card p-5 h-full">
               <p className="text-body text-muted-foreground flex items-start gap-3">
                 <span className="text-destructive/60 shrink-0 text-lg">✕</span>{item}
               </p>

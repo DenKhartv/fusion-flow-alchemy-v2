@@ -77,13 +77,13 @@ const ProgramSection = () => (
     {/* Not just a course — section 11 */}
     <Section>
       <FadeUp>
-        <h2 className="heading-lg mb-12">Это не теория<br /><span className="text-primary">ради теории</span></h2>
+        <h2 className="heading-lg mb-14">Это не теория<br /><span className="text-primary">ради теории</span></h2>
       </FadeUp>
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-8">
         <FadeUp delay={1}>
-          <div className="matte-card p-8">
-            <h3 className="text-caption mb-6 text-destructive/70">Не здесь</h3>
-            <ul className="space-y-3">
+          <div className="matte-card p-8 md:p-10">
+            <h3 className="text-caption mb-8 text-destructive/70">Не здесь</h3>
+            <ul className="space-y-4">
               {notHere.map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-body text-muted-foreground">
                   <span className="text-destructive/60 shrink-0">—</span>{item}
@@ -93,9 +93,9 @@ const ProgramSection = () => (
           </div>
         </FadeUp>
         <FadeUp delay={2}>
-          <div className="accent-card p-8">
-            <h3 className="text-caption mb-6 text-primary">Здесь</h3>
-            <ul className="space-y-3">
+          <div className="accent-card p-8 md:p-10">
+            <h3 className="text-caption mb-8 text-primary">Здесь</h3>
+            <ul className="space-y-4">
               {here.map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-body">
                   <span className="text-primary shrink-0">→</span>{item}
@@ -110,7 +110,7 @@ const ProgramSection = () => (
     {/* Program — section 12 */}
     <Section className="section-light" id="program">
       <FadeUp>
-        <h2 className="heading-lg mb-16 leading-[1.15]">
+        <h2 className="heading-lg mb-20 leading-[1.15]">
           Программа<br />
           <span className="text-primary">«Чёрная магия Fusion»</span>
         </h2>
@@ -120,21 +120,21 @@ const ProgramSection = () => (
         {/* Timeline line */}
         <div className="absolute left-4 md:left-8 top-0 bottom-0 w-px bg-border hidden md:block" />
 
-        <div className="space-y-8">
+        <div className="space-y-10">
           {steps.map((s, i) => (
             <FadeUp key={i} delay={i * 0.5}>
               <div className="relative md:pl-20">
                 {/* Timeline dot */}
                 <div className="absolute left-2 md:left-6 top-6 w-4 h-4 rounded-full bg-primary hidden md:block" />
 
-                <div className="glass-card p-6 md:p-8">
-                  <div className="flex flex-wrap items-baseline gap-3 mb-2">
+                <div className="glass-card p-7 md:p-9">
+                  <div className="flex flex-wrap items-baseline gap-3 mb-3">
                     <span className="badge-accent text-xs">{s.step}</span>
                     <h3 className="heading-md text-lg md:text-xl normal-case">{s.title}</h3>
                   </div>
-                  <p className="text-sm text-primary font-medium mb-4 font-body">Результат: {s.result}</p>
+                  <p className="text-sm text-primary font-medium mb-5 font-body">Результат: {s.result}</p>
                   <div className="flex flex-wrap gap-2">
-                    {s.topics.slice(0, 4).map((t, ti) => (
+                    {s.topics.slice(0, 3).map((t, ti) => (
                       <span key={ti} className="badge-pill text-xs">{t}</span>
                     ))}
                   </div>

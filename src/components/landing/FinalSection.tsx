@@ -28,7 +28,7 @@ const FinalSection = () => {
   });
 
   const baseChoiceClasses =
-    "w-full rounded-lg border bg-background/80 px-4 py-3 text-sm font-body text-foreground text-left transition-colors transition-shadow cursor-pointer flex items-center justify-between gap-3";
+    "w-full rounded-lg border bg-background/80 px-4 py-3 text-sm font-body text-foreground text-left transition-colors transition-shadow cursor-pointer flex items-start justify-between gap-3";
 
   const unselectedClasses =
     "border-border/60 hover:border-primary/70 hover:bg-background/90";
@@ -69,7 +69,7 @@ const FinalSection = () => {
                 isSelected ? selectedClasses : unselectedClasses
               } ${errorRing}`}
             >
-              <span className="truncate">{label}</span>
+              <span className="break-words min-w-0">{label}</span>
               {isSelected && (
                 <span className="text-primary text-xs font-medium shrink-0">
                   ✔
@@ -205,9 +205,14 @@ const FinalSection = () => {
             </p>
           </FadeUp>
           <FadeUp delay={3}>
-            <div className="flex flex-wrap gap-4">
-              <a href="#pre-register" className="btn-primary">Пройти анкету предзаписи</a>
-              <a href="#program" className="btn-outline">Посмотреть программу ещё раз</a>
+            <div className="space-y-1">
+              <div className="flex flex-wrap gap-4">
+                <a href="#pre-register" className="btn-primary">Пройти анкету предзаписи</a>
+                <a href="#program" className="btn-outline">Посмотреть программу ещё раз</a>
+              </div>
+              <p className="text-xs text-dim font-body">
+                После анкеты мы свяжемся с тобой и расскажем детали участия.
+              </p>
             </div>
           </FadeUp>
           <FadeUp delay={4}>
@@ -397,17 +402,19 @@ const FinalSection = () => {
 
           <div>
             <label className="text-sm font-medium mb-3 block font-body">
-              Сколько ты сейчас зарабатываешь на монтаже в месяц?<span className="text-destructive/80 ml-0.5">*</span>
+              Какой твой ежемесячный доход?<span className="text-destructive/80 ml-0.5">*</span>
             </label>
             {renderChoice(
               incomeMonth,
               setIncomeMonth,
               [
-                "Пока не зарабатываю",
-                "До 30 000 ₽",
-                "30–60 000 ₽",
-                "60–120 000 ₽",
-                "120 000 ₽+",
+                "Не зарабатываю",
+                "До 30 000 руб.",
+                "30 000 - 50 000 руб.",
+                "50 000 - 100 000 руб.",
+                "100 000 - 150 000 руб.",
+                "150 000 - 250 000 руб.",
+                "От 250 000 руб.",
               ],
               {
                 hasError: errors.incomeMonth,
@@ -476,17 +483,15 @@ const FinalSection = () => {
 
           <div>
             <label className="text-sm font-medium mb-3 block font-body">
-              Насколько ты сейчас готов идти на обучение?<span className="text-destructive/80 ml-0.5">*</span>
+              Собираешься ли ты идти на мое обучение?<span className="text-destructive/80 ml-0.5">*</span>
             </label>
             {renderChoice(
               readiness,
               setReadiness,
               [
-                "Пока просто изучаю информацию",
-                "Хочу подумать",
+                "Да, иду точно, без разницы сколько оно стоит",
                 "Скорее да, чем нет",
-                "Да, если подойдёт формат",
-                "Да, готов заходить в поток 🚀",
+                "Хочу узнать подробнее про формат",
               ],
               {
                 hasError: errors.readiness,

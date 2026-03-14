@@ -67,7 +67,7 @@ const HeroSection = () => (
 
     <div className="max-w-7xl mx-auto w-full relative z-10">
       {/* Content */}
-      <div className="space-y-8 lg:pl-20">
+      <div className="space-y-9 lg:pl-20">
         <FadeUp>
           <p className="text-caption">Онлайн-программа Антона Киселёва по Fusion в DaVinci Resolve</p>
         </FadeUp>
@@ -89,7 +89,8 @@ const HeroSection = () => (
 
         <FadeUp delay={3}>
           <p className="text-body text-muted-foreground max-w-2xl">
-            За 6 недель ты освоишь Fusion в DaVinci Resolve — и начнёшь делать видео, за которые платят в 2–3 раза больше
+            За 6 недель ты освоишь Fusion в DaVinci Resolve<br />
+            и выйдешь на уровень монтажа с VFX, за который платят 50–100к за проект
           </p>
         </FadeUp>
 
@@ -102,15 +103,20 @@ const HeroSection = () => (
         </FadeUp>
 
         <FadeUp delay={5}>
-          <div className="flex flex-wrap gap-4 pt-2">
+          <div className="flex flex-wrap gap-4 pt-3">
             <a href="#pre-register" className="btn-primary">Заполнить анкету предзаписи</a>
             <a href="#pre-register" className="btn-outline">Я хочу в первый поток</a>
           </div>
         </FadeUp>
         <FadeUp delay={6}>
-          <p className="text-sm text-muted-foreground font-body pt-1">
-            Сейчас мы собираем заявки в первый поток программы.
-          </p>
+          <div className="space-y-1 pt-2">
+            <p className="text-sm text-muted-foreground font-body">
+              Сейчас мы собираем заявки в первый поток программы.
+            </p>
+            <p className="text-xs text-dim font-body">
+              Это не покупка курса. Это заявка на участие в первом потоке.
+            </p>
+          </div>
         </FadeUp>
       </div>
     </div>

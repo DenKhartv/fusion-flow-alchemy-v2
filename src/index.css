@@ -83,24 +83,48 @@
     backdrop-filter: blur(12px);
     border: 1px solid hsl(var(--border) / 0.5);
     @apply rounded-xl;
+    transition: transform 250ms ease, box-shadow 250ms ease, filter 250ms ease;
+  }
+  .glass-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px -15px hsl(0 0% 0% / 0.35), 0 0 0 1px hsl(var(--border) / 0.5);
+    filter: brightness(1.03);
   }
 
   .matte-card {
     background: hsl(var(--surface-matte));
     border: 1px solid hsl(var(--border) / 0.3);
     @apply rounded-xl;
+    transition: transform 250ms ease, box-shadow 250ms ease, filter 250ms ease;
+  }
+  .matte-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px -15px hsl(0 0% 0% / 0.4), 0 0 0 1px hsl(var(--border) / 0.4);
+    filter: brightness(1.04);
   }
 
   .accent-card {
     background: linear-gradient(135deg, hsl(var(--primary) / 0.1) 0%, hsl(var(--primary) / 0.05) 100%);
     border: 1px solid hsl(var(--primary) / 0.2);
     @apply rounded-xl;
+    transition: transform 250ms ease, box-shadow 250ms ease, filter 250ms ease;
+  }
+  .accent-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px -15px hsl(var(--primary) / 0.15), 0 0 0 1px hsl(var(--primary) / 0.25);
+    filter: brightness(1.05);
   }
 
   .image-placeholder {
     background: linear-gradient(135deg, hsl(var(--surface-glass)) 0%, hsl(var(--surface-matte)) 100%);
     border: 1px solid hsl(var(--border) / 0.4);
     @apply rounded-xl overflow-hidden relative;
+    transition: transform 250ms ease, box-shadow 250ms ease, filter 250ms ease;
+  }
+  .image-placeholder:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px -15px hsl(0 0% 0% / 0.4), 0 0 0 1px hsl(var(--border) / 0.5);
+    filter: brightness(1.04);
   }
 
   .image-placeholder::before {
@@ -187,5 +211,33 @@
   .divider {
     @apply w-full h-px;
     background: linear-gradient(90deg, transparent, hsl(var(--border)), transparent);
+  }
+
+  .media-frame {
+    @apply rounded-xl overflow-hidden;
+    box-shadow: 0 0 0 1px hsl(var(--border) / 0.5), 0 12px 40px -12px hsl(0 0% 0% / 0.5);
+  }
+
+  .media-frame-accent {
+    @apply rounded-xl overflow-hidden;
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.15), 0 16px 48px -16px hsl(var(--primary) / 0.08);
+  }
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(40px, -35px);
+  }
+}
+
+@keyframes particle-glow {
+  0% {
+    opacity: 0.06;
+  }
+  100% {
+    opacity: 0.14;
   }
 }

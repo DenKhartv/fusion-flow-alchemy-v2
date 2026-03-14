@@ -38,26 +38,26 @@ const modules: Module[] = [
 const ModuleShowcaseSection = () => (
   <Section className="section-light">
     <FadeUp>
-      <h2 className="heading-lg mb-3">Какой визуал ты научишься<br /><span className="text-primary">делать по модулям</span></h2>
+      <h2 className="heading-lg mb-6">Какой визуал ты научишься<br /><span className="text-primary">делать по модулям</span></h2>
     </FadeUp>
     <FadeUp delay={1}>
-      <p className="text-body text-muted-foreground max-w-2xl mb-16">
+      <p className="text-body text-muted-foreground max-w-2xl mb-20">
         Не просто теория по Fusion, а конкретные визуальные результаты, которые ты сможешь собирать сам
       </p>
     </FadeUp>
 
-    <div className="space-y-16">
+    <div className="space-y-20">
       {modules.map((m, mi) => (
         <FadeUp key={mi} delay={mi}>
           <div>
-            <div className="flex items-baseline gap-4 mb-3">
+            <div className="flex items-baseline gap-4 mb-4">
               <span className="number-big text-4xl opacity-30">{String(mi + 1).padStart(2, "0")}</span>
               <h3 className="heading-md">{m.title}</h3>
             </div>
-            <p className="text-body text-muted-foreground mb-6 max-w-xl ml-14">{m.desc}</p>
+            <p className="text-body text-muted-foreground mb-8 max-w-xl ml-0 md:ml-14">{m.desc}</p>
 
             {m.title === "Трекинг" ? (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 ml-0 md:ml-14">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ml-0 md:ml-14 mt-8">
                 <div className="space-y-2">
                   <div className="image-placeholder aspect-video w-full overflow-hidden">
                     <video
@@ -99,7 +99,7 @@ const ModuleShowcaseSection = () => (
                 </div>
               </div>
             ) : m.title === "2D Анимация" ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ml-0 md:ml-14">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ml-0 md:ml-14 mt-8">
                 <div className="space-y-2">
                   <div className="image-placeholder aspect-video w-full overflow-hidden">
                     <video
@@ -154,7 +154,7 @@ const ModuleShowcaseSection = () => (
                 </div>
               </div>
             ) : m.title === "3D Анимация" ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ml-0 md:ml-14">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ml-0 md:ml-14 mt-8">
                 <div className="space-y-2">
                   <div className="image-placeholder aspect-video w-full overflow-hidden">
                     <video
@@ -183,7 +183,7 @@ const ModuleShowcaseSection = () => (
                 </div>
               </div>
             ) : m.title === "Частицы" ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ml-0 md:ml-14">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ml-0 md:ml-14 mt-8">
                 <div className="space-y-2">
                   <div className="image-placeholder aspect-video w-full overflow-hidden">
                     <video

@@ -14,17 +14,17 @@ const CasesSection = () => (
       </FadeUp>
 
       <FadeUp delay={2}>
-        <p className="text-sm md:text-base font-body text-primary mb-10">
+        <p className="text-sm md:text-base font-body text-primary mb-12">
           <span className="font-display text-lg md:text-2xl font-bold">700+ коротких видео</span>
           <span className="text-muted-foreground"> → </span>
           <span className="font-display text-lg md:text-2xl font-bold">100&nbsp;000 подписчиков</span>
         </p>
       </FadeUp>
 
-      <div className="grid lg:grid-cols-3 gap-6 mb-10">
+      <div className="grid lg:grid-cols-3 gap-8 mb-12">
         <FadeUp delay={3}>
-          <div className="glass-card p-6 h-full flex flex-col">
-            <div className="image-placeholder aspect-[3/4] w-full mb-4 overflow-hidden">
+          <div className="glass-card p-6 md:p-8 h-full flex flex-col">
+            <div className="image-placeholder media-frame aspect-[3/4] w-full mb-5 overflow-hidden">
               <img
                 src="/images/doctora-start.png"
                 alt="Instagram-профиль doctoreshow — старт проекта (~8 000 подписчиков)"
@@ -40,8 +40,8 @@ const CasesSection = () => (
         </FadeUp>
 
         <FadeUp delay={4}>
-          <div className="glass-card p-6 h-full flex flex-col">
-            <div className="image-placeholder aspect-[3/4] w-full mb-4 overflow-hidden">
+          <div className="glass-card p-6 md:p-8 h-full flex flex-col">
+            <div className="image-placeholder media-frame aspect-[3/4] w-full mb-5 overflow-hidden">
               <img
                 src="/images/doctora-analytics.png"
                 alt="Аналитика роста Instagram doctoreshow — график до 20 000 подписчиков"
@@ -57,8 +57,8 @@ const CasesSection = () => (
         </FadeUp>
 
         <FadeUp delay={5}>
-          <div className="glass-card p-6 h-full flex flex-col">
-            <div className="image-placeholder aspect-video w-full mb-4 overflow-hidden">
+          <div className="glass-card p-6 md:p-8 h-full flex flex-col">
+            <div className="image-placeholder media-frame aspect-video w-full mb-5 overflow-hidden">
               <img
                 src="/images/doctora-100k.png"
                 alt="Instagram-профиль doctoreshow — результат 100 000 подписчиков"
@@ -90,16 +90,16 @@ const CasesSection = () => (
         <h2 className="heading-lg mb-2">Кейс:<br /><span className="text-primary">один Reels → коммерческие предложения</span></h2>
       </FadeUp>
       <FadeUp delay={1}>
-        <p className="text-body text-muted-foreground mb-12 max-w-2xl">
+        <p className="text-body text-muted-foreground mb-14 max-w-2xl">
           Не теория ради теории, а один конкретный ролик, который открыл новые коммерческие возможности
         </p>
       </FadeUp>
 
-      <div className="grid lg:grid-cols-5 gap-10 items-center mb-4">
+      <div className="grid lg:grid-cols-5 gap-12 items-center mb-6">
         {/* Left — large Reels preview */}
         <FadeUp delay={2} className="lg:col-span-2">
-          <div className="glass-card p-4 md:p-6 flex justify-center">
-            <div className="image-placeholder aspect-[9/16] w-full max-w-xs md:max-w-sm overflow-hidden">
+          <div className="glass-card p-5 md:p-8 flex justify-center media-frame-accent">
+            <div className="image-placeholder aspect-[9/16] w-full max-w-[280px] md:max-w-sm overflow-hidden rounded-lg">
               <video
                 src="/videos/viral-reels.mp4"
                 className="h-full w-full object-cover"
@@ -114,8 +114,8 @@ const CasesSection = () => (
 
         {/* Right — explanation and results */}
         <FadeUp delay={3} className="lg:col-span-3">
-          <div className="space-y-6">
-            <div className="space-y-3">
+          <div className="space-y-8">
+            <div className="space-y-4">
               <h3 className="heading-md text-2xl">Один Reels без бюджета</h3>
               <p className="text-body text-muted-foreground">
                 Этот ролик Антон сделал для себя, без клиента и без бюджета.
@@ -123,8 +123,8 @@ const CasesSection = () => (
               </p>
             </div>
 
-            <div className="matte-card p-6">
-              <h4 className="heading-md text-xl mb-4">Результат:</h4>
+            <div className="matte-card p-6 md:p-8">
+              <h4 className="heading-md text-xl mb-5">Результат:</h4>
               <ul className="space-y-2">
                 <li className="text-body text-muted-foreground font-body flex items-start gap-2">
                   <span className="text-primary shrink-0">→</span>

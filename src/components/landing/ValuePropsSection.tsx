@@ -32,18 +32,18 @@ const ValuePropsSection = () => (
     {/* Block 2 */}
     <Section className="section-light">
       <FadeUp>
-        <h2 className="heading-lg mb-12 leading-[1.15]">
+        <h2 className="heading-lg mb-16 leading-[1.15]">
           За ближайшие 3–5 минут<br />
           <span className="text-primary">ты поймёшь:</span>
         </h2>
       </FadeUp>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {cards.map((c, i) => (
           <FadeUp key={i} delay={i}>
-            <div className="glass-card p-6 h-full flex items-start">
+            <div className="glass-card p-6 md:p-8 h-full flex items-start">
               <div>
                 <span className="number-big text-4xl md:text-5xl opacity-30">{String(i + 1).padStart(2, "0")}</span>
-                <p className="text-body mt-3">{c}</p>
+                <p className="text-body mt-4">{c}</p>
               </div>
             </div>
           </FadeUp>
@@ -54,18 +54,23 @@ const ValuePropsSection = () => (
     {/* Block 3 — For whom */}
     <Section>
       <FadeUp>
-        <h2 className="heading-lg mb-6">Для кого<br /><span className="text-primary">эта программа</span></h2>
+        <h2 className="heading-lg mb-8">Для кого<br /><span className="text-primary">эта программа</span></h2>
       </FadeUp>
       <FadeUp delay={1}>
-        <p className="text-body text-muted-foreground max-w-3xl mb-12">
-          Для монтажёров, которые уже работают с видео, но застряли на уровне обычного монтажа, хотят освоить Fusion, выйти на более дорогие проекты и поднять чек за счёт более сильного визуала
-        </p>
+        <div className="max-w-3xl mb-14 space-y-4">
+          <p className="text-body text-muted-foreground">
+            Для монтажёров, которые уже работают с видео, но застряли на уровне обычного монтажа.
+          </p>
+          <p className="text-body text-muted-foreground">
+            Хотят освоить Fusion, выйти на более дорогие проекты и поднять чек за счёт более сильного визуала.
+          </p>
+        </div>
       </FadeUp>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-8">
         <FadeUp delay={2}>
-          <div className="matte-card p-8">
-            <h3 className="heading-md text-muted-foreground mb-6">Сейчас</h3>
+          <div className="matte-card p-8 md:p-10">
+            <h3 className="heading-md text-muted-foreground mb-8">Сейчас</h3>
             <ul className="space-y-3">
               {before.map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-body text-muted-foreground">
@@ -77,8 +82,8 @@ const ValuePropsSection = () => (
           </div>
         </FadeUp>
         <FadeUp delay={3}>
-          <div className="accent-card p-8">
-            <h3 className="heading-md text-primary mb-6">После</h3>
+          <div className="accent-card p-8 md:p-10">
+            <h3 className="heading-md text-primary mb-8">После</h3>
             <ul className="space-y-3">
               {after.map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-body">
