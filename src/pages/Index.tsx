@@ -13,6 +13,7 @@ import ProgramSection from "@/components/landing/ProgramSection";
 import BonusModulesSection from "@/components/landing/BonusModulesSection";
 import ProgramWaitlistCTA from "@/components/landing/ProgramWaitlistCTA";
 import BonusesSection from "@/components/landing/BonusesSection";
+import PricingSection from "@/components/landing/PricingSection";
 import FAQSection from "@/components/landing/FAQSection";
 import FinalSection from "@/components/landing/FinalSection";
 import { SectionDivider } from "@/components/landing/SectionWrapper";
@@ -50,6 +51,8 @@ const Index = () => (
     <ProgramWaitlistCTA />
     <SectionDivider />
     <BonusesSection />
+    <SectionDivider />
+    <PricingSection />
     <SectionDivider />
     <FAQSection />
     <SectionDivider />
