@@ -22,7 +22,7 @@ const bonuses = [
 const BonusModulesSection = () => (
   <Section className="section-light">
     <FadeUp>
-      <h2 className="heading-lg mb-6">
+      <h2 className="heading-lg mb-8">
         Бонусные<br />
         <span className="text-primary">модули</span>
       </h2>
@@ -36,8 +36,13 @@ const BonusModulesSection = () => (
     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
       {bonuses.map((b, i) => (
         <FadeUp key={b.title} delay={i * 0.3}>
-          <div className="accent-card p-5 md:p-6 h-full flex flex-col gap-3">
-            <h3 className="heading-md text-lg md:text-xl normal-case">{b.title}</h3>
+          <div className="accent-card p-6 md:p-7 h-full flex flex-col gap-3">
+            <div className="flex items-center gap-2">
+              <span className="w-7 h-7 rounded-full bg-primary/15 flex items-center justify-center text-primary text-xs font-display">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="heading-md text-lg md:text-xl normal-case">{b.title}</h3>
+            </div>
             <p className="text-body text-muted-foreground text-sm md:text-base">
               {b.text}
             </p>

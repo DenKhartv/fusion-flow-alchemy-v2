@@ -90,7 +90,7 @@ const HeroSection = () => (
         <FadeUp delay={3}>
           <p className="text-body text-muted-foreground max-w-2xl">
             За 6 недель ты освоишь Fusion в DaVinci Resolve<br />
-            и выйдешь на уровень монтажа с VFX, за который платят 50–100к за проект
+            и выйдешь на уровень монтажа с VFX, за который платят 50–100к за проект.
           </p>
         </FadeUp>
 
@@ -114,7 +114,7 @@ const HeroSection = () => (
               Сейчас мы собираем заявки в первый поток программы.
             </p>
             <p className="text-xs text-dim font-body">
-              Это не покупка курса. Это заявка на участие в первом потоке.
+              Анкета занимает около 2 минут.
             </p>
           </div>
         </FadeUp>
