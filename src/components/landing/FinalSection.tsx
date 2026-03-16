@@ -254,279 +254,297 @@ const FinalSection = () => {
         </p>
       </FadeUp>
       <FadeUp delay={3}>
-        <form
-          className="max-w-2xl mx-auto glass-card p-8 space-y-7"
-          onSubmit={handleSubmit}
-        >
-          <div>
-            <label className="text-sm font-medium mb-2 block font-body">
-              Имя<span className="text-destructive/80 ml-0.5">*</span>
-            </label>
-            <input
-              type="text"
-              placeholder="Твоё имя"
-              className={`w-full bg-background border rounded-lg px-4 py-3 text-sm font-body text-foreground placeholder:text-dim focus:outline-none focus:ring-1 ${
-                errors.name
-                  ? "border-destructive/70 focus:ring-destructive/70"
-                  : "border-border focus:ring-primary"
-              }`}
-              value={name}
-              onChange={(e) => {
-                setName(e.target.value);
-                if (errors.name) {
-                  setErrors((prev) => ({ ...prev, name: false }));
-                }
-              }}
-            />
-            {errors.name && (
-              <p className="text-xs text-destructive/80 font-body mt-1">
-                Заполни это поле
-              </p>
-            )}
+        {status === "success" ? (
+          <div className="max-w-2xl mx-auto glass-card p-8 space-y-5 text-center flex flex-col items-center">
+            <h3 className="heading-md">Анкета отправлена</h3>
+            <p className="text-body text-muted-foreground max-w-md">
+              Спасибо, мы получили твою заявку.
+              <br />
+              Пока ждёшь ответ — забери бонусы и материалы в закрытом Telegram-канале.
+            </p>
+            <a
+              href="https://t.me/+aYKfN4UYw4E0MThi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary mt-2 w-full sm:w-auto"
+            >
+              Забрать бонусы в Telegram
+            </a>
+            <p className="text-xs text-dim font-body max-w-md">
+              Внутри канала: бонусные материалы, полезный контент по Fusion
+              <br />
+              и обновления по первому потоку программы.
+            </p>
           </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
+        ) : (
+          <form
+            className="max-w-2xl mx-auto glass-card p-8 space-y-7"
+            onSubmit={handleSubmit}
+          >
             <div>
               <label className="text-sm font-medium mb-2 block font-body">
-                Твой @ник в Telegram<span className="text-destructive/80 ml-0.5">*</span>
+                Имя<span className="text-destructive/80 ml-0.5">*</span>
               </label>
               <input
                 type="text"
-                placeholder="@username"
+                placeholder="Твоё имя"
                 className={`w-full bg-background border rounded-lg px-4 py-3 text-sm font-body text-foreground placeholder:text-dim focus:outline-none focus:ring-1 ${
-                  errors.telegram
+                  errors.name
                     ? "border-destructive/70 focus:ring-destructive/70"
                     : "border-border focus:ring-primary"
                 }`}
-                value={telegram}
+                value={name}
                 onChange={(e) => {
-                  setTelegram(e.target.value);
-                  if (errors.telegram) {
-                    setErrors((prev) => ({ ...prev, telegram: false }));
+                  setName(e.target.value);
+                  if (errors.name) {
+                    setErrors((prev) => ({ ...prev, name: false }));
                   }
                 }}
               />
-              {errors.telegram && (
+              {errors.name && (
                 <p className="text-xs text-destructive/80 font-body mt-1">
                   Заполни это поле
                 </p>
               )}
             </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label className="text-sm font-medium mb-2 block font-body">
+                  Твой @ник в Telegram<span className="text-destructive/80 ml-0.5">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="@username"
+                  className={`w-full bg-background border rounded-lg px-4 py-3 text-sm font-body text-foreground placeholder:text-dim focus:outline-none focus:ring-1 ${
+                    errors.telegram
+                      ? "border-destructive/70 focus:ring-destructive/70"
+                      : "border-border focus:ring-primary"
+                  }`}
+                  value={telegram}
+                  onChange={(e) => {
+                    setTelegram(e.target.value);
+                    if (errors.telegram) {
+                      setErrors((prev) => ({ ...prev, telegram: false }));
+                    }
+                  }}
+                />
+                {errors.telegram && (
+                  <p className="text-xs text-destructive/80 font-body mt-1">
+                    Заполни это поле
+                  </p>
+                )}
+              </div>
+              <div>
+                <label className="text-sm font-medium mb-2 block font-body">
+                  Твой @ник в Instagram
+                </label>
+                <input
+                  type="text"
+                  placeholder="@username"
+                  className="w-full bg-background border border-border rounded-lg px-4 py-3 text-sm font-body text-foreground placeholder:text-dim focus:outline-none focus:ring-1 focus:ring-primary"
+                  value={instagram}
+                  onChange={(e) => {
+                    setInstagram(e.target.value);
+                  }}
+                />
+              </div>
+            </div>
+
             <div>
-              <label className="text-sm font-medium mb-2 block font-body">Твой @ник в Instagram</label>
+              <label className="text-sm font-medium mb-3 block font-body">
+                Сколько у тебя опыта в монтаже?<span className="text-destructive/80 ml-0.5">*</span>
+              </label>
+              {renderChoice(
+                experience,
+                setExperience,
+                ["Только начинаю", "До 6 месяцев", "6–12 месяцев", "1–2 года", "2+ года"],
+                {
+                  hasError: errors.experience,
+                  onSelect: () =>
+                    setErrors((prev) => ({ ...prev, experience: false })),
+                }
+              )}
+              {errors.experience && (
+                <p className="text-xs text-destructive/80 font-body mt-1">
+                  Выбери один вариант
+                </p>
+              )}
+            </div>
+
+            <div>
+              <label className="text-sm font-medium mb-3 block font-body">
+                Работаешь ли ты с Fusion в DaVinci Resolve?<span className="text-destructive/80 ml-0.5">*</span>
+              </label>
+              {renderChoice(
+                fusionLevel,
+                setFusionLevel,
+                [
+                  "Да, уже использую",
+                  "Немного пробовал",
+                  "Слышал, но не работал",
+                  "Вообще не знаю что это",
+                ],
+                {
+                  hasError: errors.fusion,
+                  onSelect: () =>
+                    setErrors((prev) => ({ ...prev, fusion: false })),
+                }
+              )}
+              {errors.fusion && (
+                <p className="text-xs text-destructive/80 font-body mt-1">
+                  Выбери один вариант
+                </p>
+              )}
+            </div>
+
+            <div>
+              <label className="text-sm font-medium mb-2 block font-body">
+                Сколько ты обычно берёшь за монтаж одного видео?<span className="text-destructive/80 ml-0.5">*</span>
+              </label>
               <input
                 type="text"
-                placeholder="@username"
-                className="w-full bg-background border border-border rounded-lg px-4 py-3 text-sm font-body text-foreground placeholder:text-dim focus:outline-none focus:ring-1 focus:ring-primary"
-                value={instagram}
+                placeholder="Например: 30 000 ₽ за ролик"
+                className={`w-full bg-background border rounded-lg px-4 py-3 text-sm font-body text-foreground placeholder:text-dim focus:outline-none focus:ring-1 ${
+                  errors.pricePerVideo
+                    ? "border-destructive/70 focus:ring-destructive/70"
+                    : "border-border focus:ring-primary"
+                }`}
+                value={pricePerVideo}
                 onChange={(e) => {
-                  setInstagram(e.target.value);
+                  setPricePerVideo(e.target.value);
+                  if (errors.pricePerVideo) {
+                    setErrors((prev) => ({ ...prev, pricePerVideo: false }));
+                  }
                 }}
               />
+              {errors.pricePerVideo && (
+                <p className="text-xs text-destructive/80 font-body mt-1">
+                  Заполни это поле
+                </p>
+              )}
             </div>
-          </div>
 
-          <div>
-            <label className="text-sm font-medium mb-3 block font-body">
-              Сколько у тебя опыта в монтаже?<span className="text-destructive/80 ml-0.5">*</span>
-            </label>
-            {renderChoice(
-              experience,
-              setExperience,
-              ["Только начинаю", "До 6 месяцев", "6–12 месяцев", "1–2 года", "2+ года"],
-              {
-                hasError: errors.experience,
-                onSelect: () =>
-                  setErrors((prev) => ({ ...prev, experience: false })),
-              }
-            )}
-            {errors.experience && (
-              <p className="text-xs text-destructive/80 font-body mt-1">
-                Выбери один вариант
-              </p>
-            )}
-          </div>
-
-          <div>
-            <label className="text-sm font-medium mb-3 block font-body">
-              Работаешь ли ты с Fusion в DaVinci Resolve?<span className="text-destructive/80 ml-0.5">*</span>
-            </label>
-            {renderChoice(
-              fusionLevel,
-              setFusionLevel,
-              [
-                "Да, уже использую",
-                "Немного пробовал",
-                "Слышал, но не работал",
-                "Вообще не знаю что это",
-              ],
-              {
-                hasError: errors.fusion,
-                onSelect: () =>
-                  setErrors((prev) => ({ ...prev, fusion: false })),
-              }
-            )}
-            {errors.fusion && (
-              <p className="text-xs text-destructive/80 font-body mt-1">
-                Выбери один вариант
-              </p>
-            )}
-          </div>
-
-          <div>
-            <label className="text-sm font-medium mb-2 block font-body">
-              Сколько ты обычно берёшь за монтаж одного видео?<span className="text-destructive/80 ml-0.5">*</span>
-            </label>
-            <input
-              type="text"
-              placeholder="Например: 30 000 ₽ за ролик"
-              className={`w-full bg-background border rounded-lg px-4 py-3 text-sm font-body text-foreground placeholder:text-dim focus:outline-none focus:ring-1 ${
-                errors.pricePerVideo
-                  ? "border-destructive/70 focus:ring-destructive/70"
-                  : "border-border focus:ring-primary"
-              }`}
-              value={pricePerVideo}
-              onChange={(e) => {
-                setPricePerVideo(e.target.value);
-                if (errors.pricePerVideo) {
-                  setErrors((prev) => ({ ...prev, pricePerVideo: false }));
+            <div>
+              <label className="text-sm font-medium mb-3 block font-body">
+                Какой твой ежемесячный доход?<span className="text-destructive/80 ml-0.5">*</span>
+              </label>
+              {renderChoice(
+                incomeMonth,
+                setIncomeMonth,
+                [
+                  "Не зарабатываю",
+                  "До 30 000 руб.",
+                  "30 000 - 50 000 руб.",
+                  "50 000 - 100 000 руб.",
+                  "100 000 - 150 000 руб.",
+                  "150 000 - 250 000 руб.",
+                  "От 250 000 руб.",
+                ],
+                {
+                  hasError: errors.incomeMonth,
+                  onSelect: () =>
+                    setErrors((prev) => ({ ...prev, incomeMonth: false })),
                 }
-              }}
-            />
-            {errors.pricePerVideo && (
-              <p className="text-xs text-destructive/80 font-body mt-1">
-                Заполни это поле
-              </p>
-            )}
-          </div>
+              )}
+              {errors.incomeMonth && (
+                <p className="text-xs text-destructive/80 font-body mt-1">
+                  Выбери один вариант
+                </p>
+              )}
+            </div>
 
-          <div>
-            <label className="text-sm font-medium mb-3 block font-body">
-              Какой твой ежемесячный доход?<span className="text-destructive/80 ml-0.5">*</span>
-            </label>
-            {renderChoice(
-              incomeMonth,
-              setIncomeMonth,
-              [
-                "Не зарабатываю",
-                "До 30 000 руб.",
-                "30 000 - 50 000 руб.",
-                "50 000 - 100 000 руб.",
-                "100 000 - 150 000 руб.",
-                "150 000 - 250 000 руб.",
-                "От 250 000 руб.",
-              ],
-              {
-                hasError: errors.incomeMonth,
-                onSelect: () =>
-                  setErrors((prev) => ({ ...prev, incomeMonth: false })),
-              }
-            )}
-            {errors.incomeMonth && (
-              <p className="text-xs text-destructive/80 font-body mt-1">
-                Выбери один вариант
-              </p>
-            )}
-          </div>
+            <div>
+              <label className="text-sm font-medium mb-2 block font-body">
+                Что сейчас больше всего мешает тебе расти в монтаже?<span className="text-destructive/80 ml-0.5">*</span>
+              </label>
+              <textarea
+                placeholder="Опиши основные затыки: время, клиенты, навык, хаос в обучении и т.п."
+                className={`w-full bg-background border rounded-lg px-4 py-3 text-sm font-body text-foreground placeholder:text-dim focus:outline-none focus:ring-1 min-h-[100px] ${
+                  errors.problem
+                    ? "border-destructive/70 focus:ring-destructive/70"
+                    : "border-border focus:ring-primary"
+                }`}
+                value={problem}
+                onChange={(e) => {
+                  setProblem(e.target.value);
+                  if (errors.problem) {
+                    setErrors((prev) => ({ ...prev, problem: false }));
+                  }
+                }}
+              />
+              {errors.problem && (
+                <p className="text-xs text-destructive/80 font-body mt-1">
+                  Заполни это поле
+                </p>
+              )}
+            </div>
 
-          <div>
-            <label className="text-sm font-medium mb-2 block font-body">
-              Что сейчас больше всего мешает тебе расти в монтаже?<span className="text-destructive/80 ml-0.5">*</span>
-            </label>
-            <textarea
-              placeholder="Опиши основные затыки: время, клиенты, навык, хаос в обучении и т.п."
-              className={`w-full bg-background border rounded-lg px-4 py-3 text-sm font-body text-foreground placeholder:text-dim focus:outline-none focus:ring-1 min-h-[100px] ${
-                errors.problem
-                  ? "border-destructive/70 focus:ring-destructive/70"
-                  : "border-border focus:ring-primary"
-              }`}
-              value={problem}
-              onChange={(e) => {
-                setProblem(e.target.value);
-                if (errors.problem) {
-                  setErrors((prev) => ({ ...prev, problem: false }));
+            <div>
+              <label className="text-sm font-medium mb-2 block font-body">
+                Какой у тебя главный запрос на обучение?<span className="text-destructive/80 ml-0.5">*</span>
+              </label>
+              <textarea
+                placeholder="Например: усилить визуал, перейти на другие проекты, выстроить систему, прокачать Fusion"
+                className={`w-full bg-background border rounded-lg px-4 py-3 text-sm font-body text-foreground placeholder:text-dim focus:outline-none focus:ring-1 min-h-[100px] ${
+                  errors.request
+                    ? "border-destructive/70 focus:ring-destructive/70"
+                    : "border-border focus:ring-primary"
+                }`}
+                value={requestText}
+                onChange={(e) => {
+                  setRequestText(e.target.value);
+                  if (errors.request) {
+                    setErrors((prev) => ({ ...prev, request: false }));
+                  }
+                }}
+              />
+              {errors.request && (
+                <p className="text-xs text-destructive/80 font-body mt-1">
+                  Заполни это поле
+                </p>
+              )}
+            </div>
+
+            <div>
+              <label className="text-sm font-medium mb-3 block font-body">
+                Собираешься ли ты идти на мое обучение?<span className="text-destructive/80 ml-0.5">*</span>
+              </label>
+              {renderChoice(
+                readiness,
+                setReadiness,
+                [
+                  "Да, иду точно, без разницы сколько оно стоит",
+                  "Скорее да, чем нет",
+                  "Хочу узнать подробнее про формат",
+                ],
+                {
+                  hasError: errors.readiness,
+                  onSelect: () =>
+                    setErrors((prev) => ({ ...prev, readiness: false })),
                 }
-              }}
-            />
-            {errors.problem && (
-              <p className="text-xs text-destructive/80 font-body mt-1">
-                Заполни это поле
+              )}
+              {errors.readiness && (
+                <p className="text-xs text-destructive/80 font-body mt-1">
+                  Выбери один вариант
+                </p>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              className="btn-primary w-full text-center mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
+              disabled={isSubmitting || !isFormValid}
+            >
+              {isSubmitting ? "Отправляем..." : "Отправить анкету"}
+            </button>
+            {status === "error" && (
+              <p className="text-xs font-body text-center text-destructive/80 mt-2">
+                Что-то пошло не так. Попробуй ещё раз.
               </p>
             )}
-          </div>
-
-          <div>
-            <label className="text-sm font-medium mb-2 block font-body">
-              Какой у тебя главный запрос на обучение?<span className="text-destructive/80 ml-0.5">*</span>
-            </label>
-            <textarea
-              placeholder="Например: усилить визуал, перейти на другие проекты, выстроить систему, прокачать Fusion"
-              className={`w-full bg-background border rounded-lg px-4 py-3 text-sm font-body text-foreground placeholder:text-dim focus:outline-none focus:ring-1 min-h-[100px] ${
-                errors.request
-                  ? "border-destructive/70 focus:ring-destructive/70"
-                  : "border-border focus:ring-primary"
-              }`}
-              value={requestText}
-              onChange={(e) => {
-                setRequestText(e.target.value);
-                if (errors.request) {
-                  setErrors((prev) => ({ ...prev, request: false }));
-                }
-              }}
-            />
-            {errors.request && (
-              <p className="text-xs text-destructive/80 font-body mt-1">
-                Заполни это поле
-              </p>
-            )}
-          </div>
-
-          <div>
-            <label className="text-sm font-medium mb-3 block font-body">
-              Собираешься ли ты идти на мое обучение?<span className="text-destructive/80 ml-0.5">*</span>
-            </label>
-            {renderChoice(
-              readiness,
-              setReadiness,
-              [
-                "Да, иду точно, без разницы сколько оно стоит",
-                "Скорее да, чем нет",
-                "Хочу узнать подробнее про формат",
-              ],
-              {
-                hasError: errors.readiness,
-                onSelect: () =>
-                  setErrors((prev) => ({ ...prev, readiness: false })),
-              }
-            )}
-            {errors.readiness && (
-              <p className="text-xs text-destructive/80 font-body mt-1">
-                Выбери один вариант
-              </p>
-            )}
-          </div>
-
-          <button
-            type="submit"
-            className="btn-primary w-full text-center mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
-            disabled={isSubmitting || !isFormValid}
-          >
-            {isSubmitting ? "Отправляем..." : "Отправить анкету"}
-          </button>
-          <p className="text-xs text-dim font-body text-center pt-1">
-            Форма пока без оплаты: после отправки анкеты мы свяжемся с тобой и обсудим участие.
-          </p>
-          {status === "success" && (
-            <p className="text-xs font-body text-center text-primary mt-2">
-              Заявка отправлена. Мы свяжемся с тобой в Telegram.
-            </p>
-          )}
-          {status === "error" && (
-            <p className="text-xs font-body text-center text-destructive/80 mt-2">
-              Что-то пошло не так. Попробуй ещё раз.
-            </p>
-          )}
-        </form>
+          </form>
+        )}
       </FadeUp>
     </Section>
 
