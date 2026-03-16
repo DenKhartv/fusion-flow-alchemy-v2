@@ -15,6 +15,8 @@ const FinalSection = () => {
   const [readiness, setReadiness] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [consentPolicy, setConsentPolicy] = useState(false);
+  const [consentProcessing, setConsentProcessing] = useState(false);
   const [errors, setErrors] = useState({
     name: false,
     telegram: false,
@@ -25,6 +27,7 @@ const FinalSection = () => {
     problem: false,
     request: false,
     readiness: false,
+    consent: false,
   });
 
   const baseChoiceClasses =
@@ -103,6 +106,7 @@ const FinalSection = () => {
         problem: trimmedProblem === "",
         request: trimmedRequest === "",
         readiness: !readiness,
+        consent: !consentPolicy || !consentProcessing,
       };
 
       const hasErrors = Object.values(nextErrors).some(Boolean);
@@ -151,6 +155,7 @@ const FinalSection = () => {
         problem: false,
         request: false,
         readiness: false,
+        consent: false,
       });
 
       // Опционально очищаем форму после успешной отправки
@@ -164,6 +169,8 @@ const FinalSection = () => {
       setFusionLevel(null);
       setIncomeMonth(null);
       setReadiness(null);
+      setConsentPolicy(false);
+      setConsentProcessing(false);
     } catch {
       setStatus("error");
     } finally {
@@ -180,7 +187,9 @@ const FinalSection = () => {
     !!incomeMonth &&
     problem.trim() !== "" &&
     requestText.trim() !== "" &&
-    !!readiness;
+    !!readiness &&
+    consentPolicy &&
+    consentProcessing;
 
   return (
   <>
@@ -527,6 +536,72 @@ const FinalSection = () => {
               {errors.readiness && (
                 <p className="text-xs text-destructive/80 font-body mt-1">
                   Выбери один вариант
+                </p>
+              )}
+            </div>
+
+            <div className="space-y-2 rounded-lg bg-background/80 border border-border/70 px-4 py-3">
+              <div className="flex items-start gap-3">
+                <input
+                  id="consent-policy"
+                  type="checkbox"
+                  checked={consentPolicy}
+                  onChange={(e) => {
+                    setConsentPolicy(e.target.checked);
+                    if (errors.consent) {
+                      setErrors((prev) => ({ ...prev, consent: false }));
+                    }
+                  }}
+                  className="mt-0.5 h-4 w-4 rounded border-border bg-background text-primary focus:ring-1 focus:ring-primary focus:ring-offset-0"
+                />
+                <label
+                  htmlFor="consent-policy"
+                  className="text-xs sm:text-[13px] leading-snug text-muted-foreground font-body"
+                >
+                  Я ознакомился(ась) и соглашаюсь с{" "}
+                  <a
+                    href="https://docs.google.com/document/d/1A1KKXIgTIt8Wb-cMphXp82tI0hq11sC__oyVPG4o7Sg/edit?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-primary/90 underline underline-offset-2"
+                  >
+                    Политикой обработки персональных данных
+                  </a>
+                  .
+                </label>
+              </div>
+              <div className="flex items-start gap-3">
+                <input
+                  id="consent-processing"
+                  type="checkbox"
+                  checked={consentProcessing}
+                  onChange={(e) => {
+                    setConsentProcessing(e.target.checked);
+                    if (errors.consent) {
+                      setErrors((prev) => ({ ...prev, consent: false }));
+                    }
+                  }}
+                  className="mt-0.5 h-4 w-4 rounded border-border bg-background text-primary focus:ring-1 focus:ring-primary focus:ring-offset-0"
+                />
+                <label
+                  htmlFor="consent-processing"
+                  className="text-xs sm:text-[13px] leading-snug text-muted-foreground font-body"
+                >
+                  Я даю{" "}
+                  <a
+                    href="https://docs.google.com/document/d/15oF62pNClwE1GUeo1uXLawcgTmO8lY0leh9-O9U48cI/edit?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-primary/90 underline underline-offset-2"
+                  >
+                    Согласие на обработку персональных данных
+                  </a>
+                  .
+                </label>
+              </div>
+              {errors.consent && (
+                <p className="text-xs text-destructive/80 font-body mt-1">
+                  Чтобы отправить анкету, нужно подтвердить согласие с политикой и обработкой персональных данных.
                 </p>
               )}
             </div>
