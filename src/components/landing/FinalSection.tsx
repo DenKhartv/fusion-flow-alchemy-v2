@@ -132,7 +132,7 @@ const FinalSection = () => {
         readiness: readiness ?? "",
       };
 
-      const response = await fetch("https://nikita778.app.n8n.cloud/webhook/fusion-anketa", {
+      const response = await fetch("https://deniska12.app.n8n.cloud/webhook-test/anketa-fusion", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
